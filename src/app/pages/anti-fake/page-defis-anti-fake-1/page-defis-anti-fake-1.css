@@ -1,0 +1,39 @@
+.choix {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 0.5rem;
+  justify-content: center;
+  align-content: center;
+  padding: 1rem;
+}
+
+.defis {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.score {
+  padding: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  text-align: center;
+}
+
+.dialog-footer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 1rem 1rem;
+}
+
+.dialog-buttons {
+  min-width: 110px;
+  font-weight: 500;
+}

@@ -1,0 +1,20 @@
+.selected {
+  font-size: 3rem;
+  color: white;
+}
+
+.unselected {
+  font-size: 3rem;
+  color: #000000;
+}
+
+.icon-choice {
+  background-color: aquamarine;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 5px;
+}
+
+.icon-choice:hover {
+  background-color: #72ddba;
+}

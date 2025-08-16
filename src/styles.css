@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+
+* {
+  font-family: Arial, sans-serif;
+}
+
+html, body {
+  margin : 0;
+  padding : 0;
+}

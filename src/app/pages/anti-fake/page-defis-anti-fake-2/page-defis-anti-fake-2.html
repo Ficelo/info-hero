@@ -1,0 +1,103 @@
+<app-instructions
+  title="Chronologie Info"
+  subtitle="Corrige les articles en suivant les conseils"
+  [instructions]="instructions"
+></app-instructions>
+
+<div class="container">
+
+  <div class="start-zone">
+    @for(opt of options; track opt) {
+      <p-chip
+        icon="pi pi-{{opt.icon}}"
+        label="{{opt.name}}"
+        pDraggable
+        (onDrag)="onDragHandle(opt)"
+        (onDragEnd)="onDragEndHandle()">
+      </p-chip>
+    }
+  </div>
+
+  <div class="drop-zones">
+
+    <h3>Matin 7h-9h</h3>
+    <div class="drop-zone-1" pDroppable (onDrop)="onDropHandle(1)">
+      @for(item of drop1List; track item) {
+        <p-chip
+          icon="pi pi-{{item.icon}}"
+          label="{{item.name}}"
+          removable="true"
+          (onRemove)="onRemove(item, drop1List)">
+        </p-chip>
+      }
+    </div>
+
+    <h3>Pause déjeuner 12h-14h</h3>
+    <div class="drop-zone-2" pDroppable (onDrop)="onDropHandle(2)">
+      @for(item of drop2List; track item) {
+        <p-chip
+          icon="pi pi-{{item.icon}}"
+          label="{{item.name}}"
+          removable="true"
+          (onRemove)="onRemove(item, drop2List)">
+        </p-chip>
+      }
+    </div>
+
+    <h3>Fin d'après midi 16h-18h</h3>
+    <div class="drop-zone-3" pDroppable (onDrop)="onDropHandle(3)">
+      @for(item of drop3List; track item) {
+        <p-chip
+          icon="pi pi-{{item.icon}}"
+          label="{{item.name}}"
+          removable="true"
+          (onRemove)="onRemove(item, drop3List)">
+        </p-chip>
+      }
+    </div>
+
+    <h3>Soirée 19h-22h</h3>
+    <div class="drop-zone-4" pDroppable (onDrop)="onDropHandle(4)">
+      @for(item of drop4List; track item) {
+        <p-chip
+          icon="pi pi-{{item.icon}}"
+          label="{{item.name}}"
+          removable="true"
+          (onRemove)="onRemove(item, drop4List)">
+        </p-chip>
+      }
+    </div>
+
+  </div>
+</div>
+
+<p-button label="Confirmer" (click)="confirm()"></p-button>
+
+<p-dialog
+  header="Fin de l'activité"
+  [(visible)]="visible"
+  modal
+  [style]="{ width: '400px' }"
+  [baseZIndex]="10000"
+  [closable]="false">
+
+  <div class="score">
+    <span class="score-text">Score obtenu : {{ score }}</span>
+  </div>
+
+  <div class="dialog-footer">
+    <p-button
+      label="Réessayer"
+      (click)="retry()"
+      class="dialog-buttons"
+      icon="pi pi-refresh">
+    </p-button>
+    <p-button
+      label="Quitter"
+      (click)="quit()"
+      severity="secondary"
+      class="dialog-buttons"
+      icon="pi pi-sign-out">
+    </p-button>
+  </div>
+</p-dialog>

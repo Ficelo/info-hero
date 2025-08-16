@@ -1,0 +1,12 @@
+<div class="map-container">
+  <div
+    class="spot"
+    *ngFor="let spot of spots"
+    [style.left]="spot.x"
+    [style.top]="spot.y"
+    (click)="handleSpotClick(spot.label)"
+    [routerLink]="spot.link"
+  >
+    {{ spot.label }}
+  </div>
+</div>

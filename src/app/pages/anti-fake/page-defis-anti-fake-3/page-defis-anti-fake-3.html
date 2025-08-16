@@ -1,0 +1,46 @@
+<app-instructions
+  title="Quiz Impact"
+  subtitle="Évalue l'importance de l'accès à l'information"
+  [instructions]="instructions"
+></app-instructions>
+
+<div class="quiz-container">
+
+  <div class="quiz-card">
+    <h1 class="question">{{ questions[currentQuestion].text }}</h1>
+    <ul class="options">
+      <li *ngFor="let a of questions[currentQuestion].options"
+          class="option-item"
+          [ngClass]="{
+            'selected': selectedAnswer === a && !nextQuestionButtonVisible,
+            'correct': nextQuestionButtonVisible && a.correct,
+            'incorrect': nextQuestionButtonVisible && selectedAnswer === a && !a.correct
+          }"
+          (click)="selectAnswer(a)">
+        {{ a.text }}
+      </li>
+    </ul>
+
+
+    <p-button label="Valider ma réponse" [hidden]="!validateQuestionButtonVisible" [disabled]="selectedAnswer == null" (click)="validateQuestion(currentQuestion)" class="validate-btn"></p-button>
+    <p-button label="Question suivante" [hidden]="!nextQuestionButtonVisible" (click)="nextQuestion()" class="validate-btn"></p-button>
+  </div>
+
+  <div class="quiz-card explanation" [hidden]="!nextQuestionButtonVisible">
+
+    <p>Explication : Y'a pas pour l'instant</p>
+
+  </div>
+
+  <p-dialog header="Fin de l'activité" [(visible)]="visible" modal [style]="{ width: '400px' }" [baseZIndex]="10000" [closable]="false">
+    <div class="score">
+      <span class="score-text">Score obtenu : {{ score }}</span>
+    </div>
+
+    <div class="dialog-footer">
+      <p-button label="Réessayer" (click)="retry()" class="dialog-buttons" icon="pi pi-refresh"></p-button>
+      <p-button label="Quitter" (click)="quit()" severity="secondary" class="dialog-buttons" icon="pi pi-sign-out"></p-button>
+    </div>
+  </p-dialog>
+
+</div>

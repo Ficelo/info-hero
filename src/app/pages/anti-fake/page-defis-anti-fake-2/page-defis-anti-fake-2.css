@@ -1,0 +1,76 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  height: 100%; /* Fill available height */
+}
+
+.start-zone,
+.drop-zones {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.start-zone {
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap; /* allows multiple per line */
+  gap: 10px; /* spacing between items */
+  padding: 15px;
+  box-sizing: border-box;
+  align-content: flex-start; /* keeps items aligned to the top */
+}
+
+.drop-zones {
+  background: #fdfdfd;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  flex-wrap: wrap; /* allows multiple per line */
+  gap: 10px; /* spacing between items */
+  align-content: flex-start; /* keeps items aligned to the top */
+}
+
+.drag-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  margin: 6px 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  cursor: grab;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.drag-option:hover {
+  background-color: #f0f8ff;
+  transform: scale(1.03);
+}
+
+.drop-zone-1,
+.drop-zone-2,
+.drop-zone-3,
+.drop-zone-4 {
+  width: 100%;
+  min-height: 60px;
+  border: 2px dashed #999;
+  border-radius: 6px;
+  padding: 8px;
+  margin-bottom: 10px;
+  background-color: #fafafa;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.drop-zone-1:hover,
+.drop-zone-2:hover,
+.drop-zone-3:hover,
+.drop-zone-4:hover {
+  background-color: #f0f8ff;
+  border-color: #007bff;
+}

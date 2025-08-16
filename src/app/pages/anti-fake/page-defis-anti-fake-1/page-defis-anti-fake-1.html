@@ -1,0 +1,34 @@
+<app-instructions
+  title="Chasseur d'infos"
+  subtitle="Trouve toutes les sources d'informations cachées sur la place !"
+  [instructions]="instructions"
+></app-instructions>
+<div class="defis">
+
+  <div class="choix">
+    @for(source of sources; track source) {
+      <app-source-defis
+        name="{{source.name}}"
+        icon="{{source.icon}}"
+        correct="{{source.correct}}"
+        (addNameToList)="addNameToList($event)"
+        (removeNameFromList)="removeNameFromList($event)"
+      ></app-source-defis>
+    }
+  </div>
+
+  <p-button label="Confirmer" (click)="confirm()"></p-button>
+
+  <p-dialog header="Fin de l'activité" [(visible)]="visible" modal [style]="{ width: '400px' }" [baseZIndex]="10000" [closable]="false">
+    <div class="score">
+      <span class="score-text">Score obtenu : {{ score }}</span>
+    </div>
+
+    <div class="dialog-footer">
+      <p-button label="Réessayer" (click)="retry()" class="dialog-buttons" icon="pi pi-refresh"></p-button>
+      <p-button label="Quitter" (click)="quit()" severity="secondary" class="dialog-buttons" icon="pi pi-sign-out"></p-button>
+    </div>
+  </p-dialog>
+
+
+</div>

@@ -1,0 +1,16 @@
+<div class="main-container">
+
+  <div>
+    <p>{{questions[currentQuestion].text}}</p>
+    <p-button  label="Vrai" (click)=checkCorrect(questions[currentQuestion].options[0])></p-button>
+    <p-button  label="Faux" (click)=checkCorrect(questions[currentQuestion].options[1])></p-button>
+  </div>
+
+
+  <div [hidden]="!choiceDisabled">
+    <h3>Explications</h3>
+    <p>{{questions[currentQuestion].explication}}</p>
+    <p-button label="{{nextQuestionButtonText}}" (click)="nextQuestion()"></p-button>
+  </div>
+
+</div>

@@ -1,0 +1,22 @@
+.fullscreen-panel {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(to bottom right, #ffffffaa, #ddddffaa);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.panel-content {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.instructions-detail {
+  text-align: left;
+}
